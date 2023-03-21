@@ -1,0 +1,268 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Inter,sans-serif;
+}
+.navBar {
+    list-style-type: none;
+    margin: 0;
+    padding-right: 45px;
+    padding-left: 45px;
+    overflow: hidden;
+    background-color: #5C68C0	;
+}
+
+.navBar li {
+    float: left;
+}
+
+.navBar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+li a:hover {
+    background-color: #071871;
+}
+
+.BlockPopularAuthor{
+    position:absolute;
+    width: 100%;
+    top: 40px;
+    height: 700px;
+    
+}
+
+.PopularAuthor{
+    position:absolute;
+    left: 2%;
+    right: 2%;
+    top: 60px;
+    height: 550px;
+    width: 96%;
+    background-color: #7080D7;
+    border-radius: 25px;
+    background:linear-gradient(103.19deg,#020C54 0%,#DDBC64 125.51%);
+}
+
+.PopularAuthor div:first-child{
+    position: absolute;
+    left:  0px;
+    width: 50%;
+    height: 100%;
+    
+}
+.PopularAuthor div:last-child{
+    position: absolute;
+    right: 0px;    
+    width: 50%;
+    height: 100%;
+    
+}
+.PopularAuthor div h1{
+    position: absolute;
+    top: 60px;
+    color: white;
+    font-size: 120px;
+    left: 80px;
+    
+    
+}
+.PopularAuthor div img{
+    position: absolute;
+    left: 200px;
+    border-radius: 25px;
+    width: 350px;
+    height:450px;
+    top: 25px;
+}
+.PopularAuthor div p{
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    top: 450px;
+    left: 280px;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+    color:white;
+}
+
+.BlockEnglishAuthor{
+    position: absolute;
+    width: 100%;
+    top: 760px;
+    height: 700px;
+}
+
+.EnglishAuthor{
+    position: absolute;
+    height: 550px;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.EnglishAuthor div:first-child{
+    position: absolute;
+    left:  0px;
+    width: 50%;
+    height: 100%;
+    
+}
+.EnglishAuthor div:last-child{
+    position: absolute;
+    right: 10px;    
+    width: 50%;
+    height: 100%;    
+}
+
+.EnglishAuthorText{
+    position: absolute;
+    width: 600px;
+    height: 100%;
+    right: 30px;
+}
+
+.EnglishAuthor div  p:first-child{
+    position: absolute;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 34px;
+    text-align: center;
+    left: 0px;
+    top: 140px ;
+    color: #020C54;
+    
+}
+
+.EnglishAuthor div  p:last-child{
+    position: absolute;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 35px;
+    top: 250px;
+    left: 20px;
+    right: 20px;
+    color: #020C54;
+}
+
+.EnglishAuthor div img{
+    position: absolute;
+    border-radius: 15px;
+}
+
+#Mitchel{
+    position: absolute;
+    width:190px;
+    height:250px;
+    top: 90px;
+    left: 165px;
+}
+#Roaling{
+    position: absolute;
+    width:250px;
+    height:250px;
+    top: 370px;
+    left: 100px;
+}
+#Conan_Doyle{
+    position: absolute;
+    width:170px;
+    height:210px;
+    top: 250px;
+    left: 390px;
+}
+
+/*Здесь идет стили для 3 части*/
+
+.BlockAditionalAuthor{
+    position: absolute;
+    
+    position: absolute;
+    width: 100%;
+    top: 1540px;
+    height: 700px;
+}
+.BlockAditionalAuthorText{
+    position: absolute;
+   
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    
+}
+
+.BlockAditionalAuthorText p{
+    position: absolute;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 34px;
+    text-align: center;
+    width: 100%;
+    color: #020C54; 
+    
+}
+.AditionalAuthorImage{
+    position: absolute;
+    flex-direction: row;
+    display: flex;
+    left: 22%;
+    top: 25%;
+    height: 350px;
+}
+
+.AditionalAuthorImageCard img{
+    width: 270px;
+    height: 270px;
+    border-radius: 24px;
+    margin-right: 25px;
+}
+
+.AditionalAuthorImageCard p{
+    position: absolute;
+    width: 270px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 34px;
+    top: 75%;
+    color: #020C54;
+}
+.BlockAditionalAuthorButton{
+    position: absolute;
+    top: 85%;
+    left: 41%;
+}
+.BlockAditionalAuthorButton button {
+    
+    border: none;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: #020C54; 
+    border: 2px solid #020C54;
+    border-radius: 12px;
+    
+  }
+
+  .BlockAditionalAuthorButton button b{
+    font-size: 15px;
+  }
+  
+.BlockAditionalAuthorButton button:hover {
+    background-color: #DDBC64; /* Green */
+    color: white;
+  }

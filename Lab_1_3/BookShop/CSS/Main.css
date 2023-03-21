@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.navBar {
+    list-style-type: none;
+    margin: 0;
+    padding-right: 45px;
+    padding-left: 45px;
+    overflow: hidden;
+    background-color: #5C68C0	;
+}
+
+.navBar li {
+    float: left;
+}
+
+.navBar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #06266F;
+}
+
+.section-overlay {
+    background-image: url("C:\Users\PC\Desktop\Учеба баклавариат\6 семестр\Технология веб программирования\Лабораторные работы\Lab_1-2_1-3\Lab_1_3\BookShop\image\bookstore.jpg") ; /* Прописываем путь к картинке и задаем цвет и прозрачность */
+    background:  rgba(0, 0, 0, 0.6);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    text-align:center; /* Текст по центру */
+    color: #fff; /* Цвет текста */
+    padding: 50px 0; /* Отступ сверху и снизу */
+    
+}
+
+  
+  @keyframes display {
+    0% {
+      transform: translateX(200px);
+      opacity: 0;
+    }
+    10% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    20% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+  }
+  
+  .pic-ctn {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 15vh;
+  }
+  
+  .pic-ctn > img {
+    position: absolute;
+    top: 0;
+    left: calc(40% - 100px);
+    opacity: 0;
+    animation: display 10s infinite;
+  }
+  
+  img:nth-child(2) {
+    animation-delay: 2s;
+  }
+  img:nth-child(3) {
+    animation-delay: 4s;
+  }
+  img:nth-child(4) {
+    animation-delay: 6s;
+  }
+  img:nth-child(5) {
+    animation-delay: 8s;
+  }
+
+  .AboutMe{
+    position: absolute;
+    width: 100%;
+    height: 500px;
+  }
+  
+  .AboutMe h1{
+    position: absolute;
+    top: 200px;
+    left: 150px;
+    opacity: 85%;
+    font-size: 35px;
+  }
+
+ 
