@@ -1,0 +1,164 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.navBar {
+    list-style-type: none;
+    margin: 0;
+    padding-right: 45px;
+    padding-left: 45px;
+    overflow: hidden;
+    background-color: #5C68C0	;
+}
+
+.navBar li {
+    float: left;
+}
+
+.navBar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #06266F;
+}
+
+.Q_A{
+    position: absolute;
+    width: 100%;
+    height: 700px;
+    
+    top: 60px;
+}
+.q_a{
+    position: absolute;
+    width: 60%;
+}
+
+
+.q_a div:nth-child(2){
+    position: absolute;
+    top:50px;
+}
+
+.q_a div:nth-child(3){
+    position: absolute;
+    top:200px;
+}
+.q_a div:nth-child(4){
+    position: absolute;
+    top:350px;
+}
+.q_a div:nth-child(5){
+    position: absolute;
+    top:500px;
+}
+
+.q_a_item{
+    position: absolute;
+    width: 80%;
+    height: 125px;
+    border: 1px solid #020C54;
+    border-radius: 24px;
+    left: 60px;
+    right: 35px;
+}
+
+.questionFrequency{
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 2px;
+    text-align: center;
+}
+
+.q_a_item div:first-child{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    right: 20px;
+    text-align: center;
+    color: #020C54;
+}
+
+.q_a_item div:last-child{
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #020C54;
+}
+
+.otherQuestion{
+    position: absolute;
+    width: 40%;
+    right: 0px;
+    
+}
+.otherQuestion_item{
+    position: absolute;
+    width: 75%;
+    height: 500px;
+    border: 1px solid #020C54;
+}
+
+.otherQuestion_item textarea{
+    position: absolute;
+    width: 300px;
+    height: 100px;
+}
+#question{
+    position: absolute;
+    top: 50px;
+}
+#phone{
+    position: absolute;
+    top: 150px;
+}
+.otherQuestion_item div{
+    position: absolute;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 20px;
+}
+
+.otherQuestion_item div:first-child{
+    position: absolute;
+    top: 10px;
+}
+
+.otherQuestion_item div:last-child{
+    position: absolute;
+    top: 150px;
+}
+
+.otherQuestion_item button{
+    position: absolute;
+    top: 200px;
+}
+.otherQuestion textarea::placeholder{
+    color: #020C54;
+}
+
+.Footer{
+    position: absolute;
+    background-color: #5C68C0;
+    top: 700px;
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    color: white;
+}
