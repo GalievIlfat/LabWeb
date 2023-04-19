@@ -1,23 +1,21 @@
 var main = function () {
     "use strict";
-    var makeTabActive = function (tabNumber) {
-
-        var tabSelector = ".tabs a:nth-child(" + tabNumber + ") span";
-        $(".tabs span").removeClass("active");
-        $(tabSelector).addClass("active");
-    };
-    $(".tabs a:nth-child(1)").on("click", function () { 
-        makeTabActive(1);
+    $(".tabs a span").toArray().forEach(function (element) {
+      $(element).on("click", function () {
+        var $element = $(element);
+        $(".tabs a span").removeClass("active");
+        $element.addClass("active");
+        $("main .content").empty();
+        if ($element.parent().is(":nth-child(1)")) {
+          console.log("Щелчок на первой вкладке!");
+        } else if ($element.parent().is(":nth-child(2)")) {
+          console.log("Щелчок на второй вкладке!");
+        } else if ($element.parent().is(":nth-child(3)")) {
+          console.log("Щелчок на третьей вкладке!");
+        }
         return false;
+      });
     });
-    $(".tabs a:nth-child(2)").on("click", function () {
-        makeTabActive(2);
-        return false;
-    });
-    $(".tabs a:nth-child(3)").on("click", function () {
-        makeTabActive(3);
-        return false;
-    });
-};
-
-main();
+  };
+  
+  $(document).ready(main);
