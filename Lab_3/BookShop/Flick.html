@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BookShop</title>
+    <link rel="stylesheet" href="CSS/catalogs.css" />
+    
+</head>
+
+<body onload="loadBody()">
+    <ul class="navBar">
+        <li><a href="catalogs.html">Каталог</a></li>
+        <li><a href="authors.html">Авторы</a></li>
+        <li><a href="Main.html">О нас</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="Q&A.html">ВиО</a></li>
+    </ul>
+    
+    <p>
+        <h3>Тег для поиска в Flickr:</h3>
+        <input id="fieldForTagsOfPicture">
+        <p>
+        <button class="button" style="float: left;">Найти</button>
+        <br><br>
+        <br>
+        <h3>Фотографии:</h3>
+        <img width="400px" height="400px" id="newPicture"/>
+    
+        <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+        <script type="text/javascript" src="javascripts/Flick.js"></script>
+
+</body>
