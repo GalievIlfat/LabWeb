@@ -86,16 +86,12 @@ var main = function (bookObjects) {
 
 		$.post("/CRINGE", newRecord, function (result) {
 			console.log(result);
-			
-			bookObjects.push(newRecord);
 
-			
-			
 			$("#description").val("");
 			$("#tags").val("");
 		});
 
-        // var result = updateJson(bookObjects, newDescription, newTags);
+        var result = updateJson(bookObjects, newDescription, newTags);
 
         // organizedByTag = organizeByTags(result);
         // var json = JSON.parse(result);
