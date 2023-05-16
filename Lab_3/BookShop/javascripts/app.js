@@ -1,7 +1,7 @@
 function loadBody() {
 	$(document).ready(function () {
         $.ajaxSetup({ cache: false });
-		$.getJSON("Data.json", function (bookObjects) {
+		$.getJSON("/CRINGE", function (bookObjects) {
 			main(bookObjects);
 		});
 	});
@@ -53,11 +53,11 @@ var main = function (bookObjects) {
                 });
             } else if ($element.parent().is(":nth-child(4)")) {
                 $(".content").append("<p>");
-                $(".content").append("<h3>Клиент: </h3>");
+                $(".content").append("<h3>Описание книг: </h3>");
                 $(".content").append("<input id='description'>");
                 $(".content").append("<br>");
                 $(".content").append("<p>");
-                $(".content").append("<h3>Дата посещения: </h3>");
+                $(".content").append("<h3>Жанр: </h3>");
                 $(".content").append("<input id='tags'>");
                 $(".content").append("<p>");
                 $(".content").append("<button>Добавить</button>");
@@ -79,24 +79,23 @@ var main = function (bookObjects) {
         var newDescription = $("#description").val();
         var newTags = $("#tags").val().replace(/\s/g, "").split(',');
 
-        // var newRecord = {
-		// 	"description": newDescription,
-		// 	"tags": newTags
-		// }
+        var newRecord = {
+			"description": newDescription,
+			"tags": newTags
+		}
 
-		// $.post("clients", newRecord, function (result) {
-		// 	console.log(result);
+		$.post("/CRINGE", newRecord, function (result) {
+			console.log(result);
 			
-		// 	bookObjects.push(newRecord);
+			bookObjects.push(newRecord);
 
-		// 	organizedByTag = organizeByTags(bookObjects);
-		// 	organizedByTagOLD = organizeByTagsOLD(bookObjects);
 			
-		// 	$("#description").val("");
-		// 	$("#tags").val("");
-		// });
+			
+			$("#description").val("");
+			$("#tags").val("");
+		});
 
-        var result = updateJson(bookObjects, newDescription, newTags);
+        // var result = updateJson(bookObjects, newDescription, newTags);
 
         // organizedByTag = organizeByTags(result);
         // var json = JSON.parse(result);
@@ -166,7 +165,7 @@ var main = function (bookObjects) {
 
 
 $(document).ready(function () {
-    $.getJSON("Data.json", function (bookObjects) {
+    $.getJSON("/CRINGE", function (bookObjects) {
         // вызываем функцию main с задачами в качестве аргумента
         main(bookObjects);
     });
