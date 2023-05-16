@@ -112,22 +112,11 @@ var main = function (bookObjects) {
         return json;
     }
 
-    function updateJson(bookObjects, newDescription, newTags) {
-        var newJsonObject = function (description, tags) {
-            this.description = description;
-            this.tags = tags
-        }
-
-        var newJson = new newJsonObject(newDescription, newTags);
-        bookObjects.push(newJson);
-        alert("Предложение успешно добавлено в список!");
-
-        return bookObjects;
-    }
+    
 
     $(".content").on("click", ".button", function () {
         if ($(".input").val() != "") {
-            books.push($(".input").val());
+            //books.push($(".input").val());
             //alert("Предложение успешно добавлено в список!");
         }
         else {
@@ -136,34 +125,32 @@ var main = function (bookObjects) {
         var newDescription = $("#description").val();
         var newTags = $("#tags").val().replace(/\s/g, "").split(',');
 
-        var newRecord = {
-            "description": newDescription,
-            "tags": newTags
-        }
-
-        $.post("/client", newRecord, function (result) {
-            console.log(result);
-
-            $("#description").val("");
-            $("#tags").val("");
-        });
-
-        var result = updateJson(bookObjects, newDescription, newTags);
-
+        
+        var result = updateJson(bookObjects, newDescription, newTags);        
+        
         // organizedByTag = organizeByTags(result);
         // var json = JSON.parse(result);
-
     });
-
-
+    $(".tabs a:first-child span").trigger("click");
+    
+    function updateJson(toDoObjects, newDescription, newTags) {
+        var newJsonObject =  {
+            "description" : newDescription,
+            "tags" : newTags
+        }
+        $.post("/client", newJsonObject, function () {});
+        //toDoObjects.push(newJsonObject);
+        alert("Предложение успешно добавлено в список!");
+        return toDoObjects;
+    }
 };
 
 
 
 
-$(document).ready(function () {
-    $.getJSON("/client", function (bookObjects) {
-        // вызываем функцию main с задачами в качестве аргумента
-        main(bookObjects);
-    });
-});
+// $(document).ready(function () {
+//     $.getJSON("/client", function (bookObjects) {
+//         // вызываем функцию main с задачами в качестве аргумента
+//         main(bookObjects);
+//     });
+// });
