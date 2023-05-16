@@ -28,12 +28,12 @@ app.use(express.static(__dirname + "/BookShop"));
 http.createServer(app).listen(3000);
 app.use(express.urlencoded({extended: true}));
 
-app.get("/CRINGE", function(req, res) {
+app.get("/client", function(req, res) {
     res.json(employees);
 })
 
 
-app.post("/CRINGE", function (req, res) {
+app.post("/client", function (req, res) {
     var newEmployee = req.body;
     employees.push(newEmployee);
 });

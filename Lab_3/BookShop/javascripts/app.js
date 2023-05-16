@@ -1,10 +1,10 @@
 function loadBody() {
-	$(document).ready(function () {
+    $(document).ready(function () {
         $.ajaxSetup({ cache: false });
-		$.getJSON("/CRINGE", function (bookObjects) {
-			main(bookObjects);
-		});
-	});
+        $.getJSON("/client", function (bookObjects) {
+            main(bookObjects);
+        });
+    });
 }
 
 var main = function (bookObjects) {
@@ -16,7 +16,7 @@ var main = function (bookObjects) {
     });
 
     var $ = jQuery;
-    
+
     $(".tabs a span").toArray().forEach(function (element) {
         $(element).on("click", function () {
             var $element = $(element), $content;
@@ -39,7 +39,7 @@ var main = function (bookObjects) {
                 var orginized = convertToTags(bookObjects)
                 // ЭТО КОД ДЛЯ ВКЛАДКИ ТЕГИ
                 console.log("щелчок на вкладке Теги");
-                
+
                 // var organizedByTag = bookObjects;
                 orginized.forEach(function (tag) {
                     var $tagName = $("<h3>").text(tag.name),
@@ -68,6 +68,63 @@ var main = function (bookObjects) {
         })
     });
 
+
+    function convertToTags(obj) {
+        var newbooksDescription = obj.map(function (newbook) {
+            return newbook.description;
+        });
+
+        var newbooksTags = obj.map(function (book) {
+            return book.tags;
+        });
+
+        var newTags = function (name, books) {
+            this.name = name;
+            this.books = books;
+        }
+
+        var newArray = [];
+        var arrayTags = [];
+        var strTag = '';
+        var array = [];
+
+        for (var i = 0; i < newbooksTags.length; i++) {
+            for (var j = 0; j < newbooksTags[i].length; j++) {
+                if (arrayTags.indexOf(newbooksTags[i][j]) == -1) {
+                    arrayTags.push(newbooksTags[i][j]);
+                    strTag = newbooksTags[i][j];
+                    for (var k = 0; k < newbooksDescription.length; k++) {
+                        if (newbooksTags[k].indexOf(newbooksTags[i][j]) != -1) {
+                            newArray.push(newbooksDescription[k]);
+                        }
+                    }
+
+                    var x = new newTags(strTag, newArray);
+                    newArray = [];
+                    array.push(x);
+                }
+            }
+        }
+
+        let json = JSON.stringify(array);
+        json = JSON.parse(json);
+
+        return json;
+    }
+
+    function updateJson(bookObjects, newDescription, newTags) {
+        var newJsonObject = function (description, tags) {
+            this.description = description;
+            this.tags = tags
+        }
+
+        var newJson = new newJsonObject(newDescription, newTags);
+        bookObjects.push(newJson);
+        alert("Предложение успешно добавлено в список!");
+
+        return bookObjects;
+    }
+
     $(".content").on("click", ".button", function () {
         if ($(".input").val() != "") {
             books.push($(".input").val());
@@ -80,88 +137,32 @@ var main = function (bookObjects) {
         var newTags = $("#tags").val().replace(/\s/g, "").split(',');
 
         var newRecord = {
-			"description": newDescription,
-			"tags": newTags
-		}
+            "description": newDescription,
+            "tags": newTags
+        }
 
-		$.post("/CRINGE", newRecord, function (result) {
-			console.log(result);
+        $.post("/client", newRecord, function (result) {
+            console.log(result);
 
-			$("#description").val("");
-			$("#tags").val("");
-		});
+            $("#description").val("");
+            $("#tags").val("");
+        });
 
         var result = updateJson(bookObjects, newDescription, newTags);
 
         // organizedByTag = organizeByTags(result);
         // var json = JSON.parse(result);
-        
+
     });
 
-    function convertToTags(obj) {
-        var newbooksDescription = obj.map(function (newbook) {
-            return newbook.description;
-        });
-    
-        var newbooksTags = obj.map(function (book) {
-            return book.tags;
-        });
-    
-        var newTags = function(name, books) {
-            this.name = name;
-            this.books = books;
-        }
-    
-        var newArray = [];
-        var arrayTags = [];
-        var strTag = '';
-        var array = [];
-    
-        for (var i = 0; i < newbooksTags.length; i++) {
-            for (var j = 0; j < newbooksTags[i].length; j++) {
-                if (arrayTags.indexOf(newbooksTags[i][j]) == -1) {
-                    arrayTags.push(newbooksTags[i][j]);
-                    strTag = newbooksTags[i][j];
-                    for (var k = 0; k < newbooksDescription.length; k++) {
-                        if (newbooksTags[k].indexOf(newbooksTags[i][j]) != -1) {
-                            newArray.push(newbooksDescription[k]);
-                        }
-                    }
-    
-                    var x = new newTags(strTag, newArray);
-                    newArray = [];
-                    array.push(x);
-                }
-            }
-        }
-    
-        let json = JSON.stringify(array);
-        json = JSON.parse(json);
-    
-        return json;
-    }
-    
-    function updateJson(bookObjects, newDescription, newTags) {
-        var newJsonObject = function (description, tags) {
-            this.description = description;
-            this.tags = tags
-        }
-    
-        var newJson = new newJsonObject(newDescription, newTags);
-        bookObjects.push(newJson);
-        alert("Предложение успешно добавлено в список!");
-    
-        return bookObjects;
-    }
 
 };
 
 
 
 
-
 $(document).ready(function () {
-    $.getJSON("/CRINGE", function (bookObjects) {
+    $.getJSON("/client", function (bookObjects) {
         // вызываем функцию main с задачами в качестве аргумента
         main(bookObjects);
     });
