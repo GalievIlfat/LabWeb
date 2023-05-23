@@ -1,7 +1,7 @@
 function loadBody() {
     $(document).ready(function () {
         $.ajaxSetup({ cache: false });
-        $.getJSON("/client", function (bookObjects) {
+        $.getJSON("/descriptionbooks", function (bookObjects) {
             main(bookObjects);
         });
     });
@@ -138,7 +138,7 @@ var main = function (bookObjects) {
             "description" : newDescription,
             "tags" : newTags
         }
-        $.post("/client", newJsonObject, function () {});
+        $.post("/descriptionbooks", newJsonObject, function () {});
         //toDoObjects.push(newJsonObject);
         alert("Предложение успешно добавлено в список!");
         return toDoObjects;
@@ -149,7 +149,7 @@ var main = function (bookObjects) {
 
 
 // $(document).ready(function () {
-//     $.getJSON("/client", function (bookObjects) {
+//     $.getJSON("/descriptionBook", function (bookObjects) {
 //         // вызываем функцию main с задачами в качестве аргумента
 //         main(bookObjects);
 //     });
