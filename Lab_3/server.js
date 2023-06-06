@@ -1,7 +1,9 @@
-const express = require("express");
+const express = require("express")
 const http = require("http"); 
 const mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+const ClientsController = require("./controller/bookController.js");
+const UsersController = require("./controller/UsersController.js");
+
 
 var app = express()
 http.createServer(app).listen(3000);
@@ -16,40 +18,20 @@ mongoose.connect("mongodb://0.0.0.0:27017/BookShop", { useNewUrlParser: true, us
             console.log('bad connection...');
         });
 
-var descriptionBook = mongoose.model("descriptionbooks", new Schema({
-    description: String,
-    tags: [ String ]
-}));
 
-app.get("/descriptionbooks", async (req, res) => {
-    await descriptionBook.find()
-                .then(async (descriptionBooks) => {
-					res.json(descriptionBooks);
-				})
-				.catch((err) => {
-					console.log(err);
-				});
-});
+app.get("/clients", ClientsController.index);
+app.get("/clients/:id", ClientsController.show); 
+app.post("/clients", ClientsController.create);
+app.put("/clients/:id", ClientsController.update);
+app.delete("/clients/:id", ClientsController.destroy);
 
-app.post("/descriptionbooks", async (req, res) => {
-	console.log(req.body);
-	let newdescriptionBook = new descriptionBook({
-        "description": req.body.description, 
-        "tags": req.body.tags
-    });
-	
-	await newdescriptionBook.save()
-                   .then(async (result) => {
-                       await descriptionBook.find()
-                           .then(async (result) => {
-                               res.json(result);
-                           })
-                           .catch(async (err) => {
-                               res.send(err);
-                           });
-                   })
-                   .catch(async (err) => {
-                       console.log(err);
-                       res.send("ERROR");
-                   });
-});
+app.get("/users/:username/clients", ClientsController.index);
+app.post("/users/:username/clients", ClientsController.create);
+app.put("/users/:username/clients/:id", ClientsController.update);
+app.delete("/users/:username/clients/:id", ClientsController.destroy);
+
+app.get("/users", UsersController.index); 
+app.post("/users", UsersController.create); 
+app.get("/users/:username", UsersController.show);
+app.put("/users/:username", UsersController.update);
+app.delete("/users/:username", UsersController.destroy);
